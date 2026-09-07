@@ -1,0 +1,2137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Indujha | Data Analytics • Machine Learning • Software Development</title>
+
+<meta name="description" content="Indujha - B.Sc. Computer Science with Data Analytics student exploring Data Analytics, Machine Learning and Software Development.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<style>
+
+/* ==============================
+   RESET
+============================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    background:#f4f1eb;
+    color:#181818;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+::selection{
+    background:#181818;
+    color:#fff;
+}
+
+
+/* ==============================
+   NAVIGATION
+============================== */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:9999;
+    background:rgba(244,241,235,.94);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid #d7d2ca;
+}
+
+.nav-container{
+    max-width:1250px;
+    height:75px;
+    margin:auto;
+    padding:0 30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:18px;
+    font-weight:700;
+    letter-spacing:5px;
+}
+
+nav{
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:2px;
+    position:relative;
+}
+
+nav a:after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-7px;
+    width:0;
+    height:1px;
+    background:#181818;
+    transition:.3s;
+}
+
+nav a:hover:after,
+nav a.active:after{
+    width:100%;
+}
+
+.menu{
+    display:none;
+    border:0;
+    background:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+
+/* ==============================
+   COMMON
+============================== */
+
+section{
+    max-width:1250px;
+    margin:auto;
+    padding:125px 30px;
+}
+
+.section-top{
+    border-top:1px solid #d7d2ca;
+}
+
+.label{
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:3px;
+}
+
+.section-title{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(48px,7vw,82px);
+    line-height:.95;
+    font-weight:500;
+    margin-top:20px;
+}
+
+.muted{
+    color:#6d6a65;
+}
+
+
+/* ==============================
+   HERO
+============================== */
+
+.hero{
+    min-height:100vh;
+    padding-top:150px;
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    align-items:center;
+    gap:50px;
+}
+
+.hero-small{
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:4px;
+}
+
+.hero h1{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(80px,13vw,170px);
+    line-height:.78;
+    font-weight:500;
+    margin:25px 0 30px;
+}
+
+.hero h1 span{
+    font-style:italic;
+}
+
+.hero-role{
+    font-size:11px;
+    letter-spacing:3px;
+    font-weight:600;
+    line-height:2;
+}
+
+.hero-role span{
+    opacity:.45;
+    margin:0 7px;
+}
+
+.hero-line{
+    width:75px;
+    height:1px;
+    background:#181818;
+    margin:30px 0;
+}
+
+.hero-quote{
+    font-family:"Playfair Display",serif;
+    font-size:28px;
+    font-style:italic;
+    line-height:1.3;
+}
+
+.hero-text{
+    max-width:600px;
+    margin-top:25px;
+    color:#6d6a65;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    margin-top:35px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 22px;
+    border:1px solid #181818;
+    font-size:10px;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+.btn-dark{
+    background:#181818;
+    color:#fff;
+}
+
+.btn-dark:hover{
+    background:transparent;
+    color:#181818;
+}
+
+.btn-light:hover{
+    background:#181818;
+    color:#fff;
+}
+
+.hero-stats{
+    display:flex;
+    gap:55px;
+    margin-top:60px;
+}
+
+.stat{
+    display:flex;
+    flex-direction:column;
+}
+
+.stat strong{
+    font-size:20px;
+}
+
+.stat span{
+    font-size:9px;
+    color:#777;
+    letter-spacing:1px;
+}
+
+
+/* ==============================
+   HERO VISUAL
+============================== */
+
+.hero-visual{
+    height:520px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.orbit{
+    position:absolute;
+    border:1px solid #bdb8af;
+    border-radius:50%;
+}
+
+.orbit.one{
+    width:350px;
+    height:350px;
+}
+
+.orbit.two{
+    width:470px;
+    height:470px;
+}
+
+.visual-card{
+    width:275px;
+    height:335px;
+    padding:35px;
+    background:#181818;
+    color:white;
+    position:relative;
+    z-index:2;
+    transform:rotate(-6deg);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    box-shadow:20px 20px 0 #d3cec5;
+}
+
+.visual-card .data{
+    font-size:12px;
+    letter-spacing:6px;
+}
+
+.chart{
+    display:flex;
+    align-items:end;
+    height:130px;
+    gap:12px;
+}
+
+.bar{
+    width:25px;
+    background:#fff;
+    opacity:.9;
+}
+
+.bar:nth-child(1){height:40%}
+.bar:nth-child(2){height:65%}
+.bar:nth-child(3){height:50%}
+.bar:nth-child(4){height:90%}
+.bar:nth-child(5){height:72%}
+
+.visual-bottom{
+    font-size:9px;
+    letter-spacing:2px;
+}
+
+
+/* ==============================
+   ABOUT
+============================== */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:100px;
+    margin-top:75px;
+}
+
+.about-text p{
+    margin-bottom:25px;
+    color:#6d6a65;
+}
+
+.about-text .big{
+    font-family:"Playfair Display",serif;
+    font-size:27px;
+    line-height:1.4;
+    color:#222;
+}
+
+.interest{
+    border-left:1px solid #aaa;
+    padding-left:40px;
+}
+
+.interest-title{
+    font-size:10px;
+    letter-spacing:3px;
+    font-weight:700;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:30px;
+}
+
+.tag{
+    border:1px solid #c4beb5;
+    padding:9px 13px;
+    font-size:10px;
+}
+
+.quote{
+    margin-top:40px;
+    font-family:"Playfair Display",serif;
+    font-style:italic;
+    color:#666;
+}
+
+.thinking{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    margin-top:85px;
+    border-top:1px solid #ccc;
+}
+
+.think{
+    padding:35px 22px;
+    border-right:1px solid #ccc;
+}
+
+.think:last-child{
+    border-right:0;
+}
+
+.think-number{
+    font-size:10px;
+    color:#777;
+}
+
+.think h3{
+    font-size:12px;
+    letter-spacing:2px;
+    margin-top:25px;
+}
+
+.think p{
+    font-size:12px;
+    color:#777;
+    margin-top:8px;
+}
+
+
+/* ==============================
+   EXPERTISE
+============================== */
+
+.skills{
+    margin-top:70px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:#c8c2b9;
+}
+
+.skill{
+    background:#f4f1eb;
+    min-height:340px;
+    padding:40px;
+    display:flex;
+    flex-direction:column;
+}
+
+.skill-no{
+    font-size:10px;
+    color:#777;
+    letter-spacing:2px;
+}
+
+.skill h3{
+    font-size:15px;
+    letter-spacing:2px;
+    margin:25px 0;
+}
+
+.skill ul{
+    list-style:none;
+}
+
+.skill li{
+    padding:8px 0;
+    border-bottom:1px solid #ddd8d0;
+    font-size:13px;
+    color:#555;
+}
+
+.core{
+    margin-top:auto;
+    padding-top:30px;
+    font-size:8px;
+    color:#888;
+    letter-spacing:2px;
+}
+
+
+/* ==============================
+   PROJECTS
+============================== */
+
+.project{
+    margin-top:85px;
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:65px;
+    align-items:center;
+}
+
+.project h3{
+    font-family:"Playfair Display",serif;
+    font-size:45px;
+    line-height:1;
+    font-weight:500;
+    margin:20px 0;
+}
+
+.project-category{
+    font-size:9px;
+    letter-spacing:2px;
+    color:#777;
+    margin-bottom:25px;
+}
+
+.project-description{
+    color:#666;
+}
+
+.module-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin:28px 0;
+}
+
+.module{
+    border:1px solid #c5c0b7;
+    padding:8px 11px;
+    font-size:9px;
+}
+
+.tech{
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+
+/* ==============================
+   GARMENT DASHBOARD
+============================== */
+
+.dashboard{
+    background:#181818;
+    color:#fff;
+    padding:25px;
+    min-height:410px;
+    box-shadow:20px 20px 0 #d4cfc7;
+}
+
+.dashboard-head{
+    display:flex;
+    justify-content:space-between;
+    padding-bottom:18px;
+    border-bottom:1px solid #3b3b3b;
+    font-size:8px;
+    letter-spacing:2px;
+}
+
+.dashboard-head span:last-child{
+    color:#aaa;
+}
+
+.dashboard-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
+    margin:25px 0;
+}
+
+.dashboard-stat{
+    border:1px solid #3c3c3c;
+    padding:14px;
+}
+
+.dashboard-stat small{
+    font-size:7px;
+    color:#999;
+    display:block;
+}
+
+.dashboard-stat strong{
+    display:block;
+    font-size:27px;
+    margin-top:6px;
+}
+
+.pipeline-title{
+    font-size:8px;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+
+.pipeline-row{
+    display:grid;
+    grid-template-columns:70px 1fr 130px;
+    gap:10px;
+    padding:16px 0;
+    border-bottom:1px solid #333;
+    font-size:10px;
+}
+
+.pipeline-row span:nth-child(2){
+    color:#aaa;
+}
+
+.pipeline-row b{
+    font-size:8px;
+}
+
+
+/* ==============================
+   SECOND PROJECT
+============================== */
+
+.second-project{
+    grid-template-columns:1fr 1fr;
+}
+
+.features{
+    margin-top:25px;
+}
+
+.feature{
+    border-top:1px solid #ccc;
+    padding:15px 0;
+}
+
+.feature b{
+    font-size:9px;
+    letter-spacing:2px;
+}
+
+.feature p{
+    font-size:11px;
+    color:#777;
+    margin-top:4px;
+}
+
+.gym{
+    background:#fff;
+    border:1px solid #ccc;
+    padding:25px;
+}
+
+.gym-head{
+    display:flex;
+    justify-content:space-between;
+    font-size:9px;
+    margin-bottom:20px;
+}
+
+.gym-head span{
+    color:#888;
+}
+
+.search{
+    display:flex;
+    gap:8px;
+}
+
+.search input{
+    flex:1;
+    padding:12px;
+    border:1px solid #ccc;
+    outline:none;
+}
+
+.search button{
+    border:0;
+    background:#181818;
+    color:#fff;
+    padding:0 15px;
+    cursor:pointer;
+}
+
+.member-table{
+    margin-top:25px;
+    overflow-x:auto;
+}
+
+.member-row{
+    min-width:500px;
+    display:grid;
+    grid-template-columns:1fr 1.5fr .5fr 1fr 1fr;
+    padding:12px 5px;
+    border-bottom:1px solid #ddd;
+    font-size:9px;
+}
+
+.member-row.header{
+    font-size:7px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+
+/* ==============================
+   PROCESS
+============================== */
+
+.process-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    margin-top:70px;
+    border-top:1px solid #ccc;
+}
+
+.process-card{
+    padding:35px 20px;
+    border-right:1px solid #ccc;
+}
+
+.process-card:last-child{
+    border-right:0;
+}
+
+.process-card span{
+    font-size:11px;
+}
+
+.process-card h3{
+    font-size:12px;
+    letter-spacing:2px;
+    margin-top:28px;
+}
+
+.process-card p{
+    font-size:11px;
+    color:#777;
+    margin-top:10px;
+}
+
+
+/* ==============================
+   EDUCATION
+============================== */
+
+.education-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 230px;
+    gap:60px;
+    margin-top:75px;
+    align-items:center;
+}
+
+.education h3{
+    font-family:"Playfair Display",serif;
+    font-size:31px;
+    line-height:1.1;
+    margin-top:18px;
+}
+
+.college{
+    color:#777;
+    margin-top:15px;
+}
+
+.score{
+    border:1px solid #aaa;
+    padding:30px;
+    text-align:center;
+}
+
+.score small{
+    display:block;
+    font-size:8px;
+    letter-spacing:2px;
+}
+
+.score strong{
+    display:block;
+    font-family:"Playfair Display",serif;
+    font-size:65px;
+    font-weight:500;
+}
+
+.score span{
+    font-size:9px;
+    color:#777;
+}
+
+
+/* ==============================
+   GROWTH
+============================== */
+
+.growth-quote{
+    font-family:"Playfair Display",serif;
+    font-size:28px;
+    font-style:italic;
+    margin-top:35px;
+}
+
+.growth-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    margin-top:70px;
+    border-top:1px solid #ccc;
+}
+
+.growth-card{
+    padding:30px 20px;
+    border-right:1px solid #ccc;
+}
+
+.growth-card:last-child{
+    border-right:0;
+}
+
+.growth-card span{
+    font-size:10px;
+}
+
+.growth-card h3{
+    font-size:11px;
+    letter-spacing:2px;
+    margin:25px 0 10px;
+}
+
+.growth-card p{
+    font-size:11px;
+    color:#777;
+}
+
+.exploring{
+    margin-top:75px;
+    border:1px solid #bbb;
+    padding:30px;
+}
+
+.exploring-title{
+    font-size:9px;
+    letter-spacing:3px;
+    font-weight:700;
+}
+
+.exploring-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px;
+    margin-top:25px;
+}
+
+.exploring-list span{
+    font-size:10px;
+    font-weight:700;
+}
+
+
+/* ==============================
+   CONTACT
+============================== */
+
+.contact-inner{
+    max-width:1000px;
+}
+
+.contact h2{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(55px,7vw,90px);
+    line-height:.95;
+    font-weight:500;
+    margin:25px 0;
+}
+
+.contact-description{
+    max-width:550px;
+    color:#666;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    margin-top:60px;
+}
+
+.contact-item{
+    border-top:1px solid #aaa;
+    padding-top:15px;
+    font-size:11px;
+}
+
+.contact-item span{
+    display:block;
+    font-size:8px;
+    letter-spacing:2px;
+    color:#777;
+    margin-bottom:7px;
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer{
+    border-top:1px solid #ccc;
+    padding:50px 30px;
+    text-align:center;
+}
+
+.footer-logo{
+    font-weight:700;
+    letter-spacing:5px;
+}
+
+.footer-role{
+    font-size:8px;
+    color:#777;
+    letter-spacing:2px;
+    margin:15px 0 25px;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+}
+
+.footer-links a{
+    font-size:8px;
+    letter-spacing:2px;
+}
+
+.copyright{
+    display:block;
+    margin-top:30px;
+    font-size:8px;
+    color:#888;
+}
+
+
+/* ==============================
+   SCROLL ANIMATION
+============================== */
+
+.reveal{
+    opacity:0;
+    transform:translateY(30px);
+    transition:opacity .8s ease, transform .8s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media(max-width:900px){
+
+    nav{
+        display:none;
+        position:absolute;
+        top:75px;
+        left:0;
+        width:100%;
+        background:#f4f1eb;
+        flex-direction:column;
+        padding:25px 30px;
+        border-bottom:1px solid #ccc;
+    }
+
+    nav.open{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+    }
+
+    .about-grid,
+    .project,
+    .second-project,
+    .education-grid{
+        grid-template-columns:1fr;
+    }
+
+    .thinking,
+    .growth-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .process-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+
+@media(max-width:600px){
+
+    section{
+        padding:90px 20px;
+    }
+
+    .hero{
+        padding:120px 20px 70px;
+    }
+
+    .hero h1{
+        font-size:75px;
+    }
+
+    .hero-role{
+        line-height:2.2;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+
+    .hero-stats{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .hero-visual{
+        height:380px;
+    }
+
+    .orbit.one{
+        width:260px;
+        height:260px;
+    }
+
+    .orbit.two{
+        width:330px;
+        height:330px;
+    }
+
+    .visual-card{
+        width:220px;
+        height:270px;
+    }
+
+    .about-grid{
+        gap:50px;
+    }
+
+    .thinking,
+    .skills,
+    .growth-grid,
+    .process-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .think,
+    .growth-card,
+    .process-card{
+        border-right:0;
+        border-bottom:1px solid #ccc;
+    }
+
+    .project h3{
+        font-size:38px;
+    }
+
+    .dashboard-stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .pipeline-row{
+        grid-template-columns:60px 1fr;
+    }
+
+    .pipeline-row b{
+        display:none;
+    }
+
+    .search{
+        flex-direction:column;
+    }
+
+    .search button{
+        padding:12px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ==============================
+     NAVIGATION
+============================== -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="#home" class="logo">INDUJHA</a>
+
+        <nav id="nav">
+
+            <a href="#home">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#expertise">EXPERTISE</a>
+            <a href="#projects">PROJECTS</a>
+            <a href="#journey">JOURNEY</a>
+            <a href="#education">EDUCATION</a>
+            <a href="#contact">CONTACT</a>
+
+        </nav>
+
+        <button class="menu" id="menu">☰</button>
+
+    </div>
+
+</header>
+
+
+<main>
+
+
+<!-- ==============================
+     HOME
+============================== -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content reveal">
+
+        <div class="hero-small">
+            HELLO, I'M
+        </div>
+
+        <h1>INDUJHA<span>.</span></h1>
+
+        <div class="hero-role">
+            DATA ANALYTICS
+            <span>•</span>
+            MACHINE LEARNING
+            <span>•</span>
+            SOFTWARE DEVELOPMENT
+        </div>
+
+        <div class="hero-line"></div>
+
+        <div class="hero-quote">
+            “I turn data into insight<br>
+            and ideas into intelligent solutions.”
+        </div>
+
+        <p class="hero-text">
+            B.Sc. Computer Science with Data Analytics student exploring
+            how data, machine learning and software can be transformed
+            into practical solutions for real-world problems.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#projects" class="btn btn-dark">
+                EXPLORE MY WORK
+            </a>
+
+            <a href="resume.pdf" class="btn btn-light" download>
+                DOWNLOAD RESUME
+            </a>
+
+        </div>
+
+        <div class="hero-stats">
+
+            <div class="stat">
+                <strong>B.Sc.</strong>
+                <span>CS + DATA ANALYTICS</span>
+            </div>
+
+            <div class="stat">
+                <strong>83%</strong>
+                <span>ACADEMIC SCORE</span>
+            </div>
+
+            <div class="stat">
+                <strong>PYTHON</strong>
+                <span>SQL • ML • POWER BI</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-visual reveal">
+
+        <div class="orbit one"></div>
+        <div class="orbit two"></div>
+
+        <div class="visual-card">
+
+            <span class="data">DATA</span>
+
+            <div class="chart">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <span class="visual-bottom">
+                DATA → INSIGHT → DECISION → IMPACT
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     ABOUT
+============================== -->
+
+<section id="about" class="section-top">
+
+    <div class="reveal">
+
+        <div class="label">01 / ABOUT</div>
+
+        <h2 class="section-title">
+            Turning Data<br>
+            Into Decisions.
+        </h2>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="about-text reveal">
+
+            <p class="big">
+                I’m Indujha, a Computer Science with Data Analytics
+                student who enjoys transforming raw information into
+                meaningful insights and practical digital solutions.
+            </p>
+
+            <p>
+                My interests span data analysis, predictive analytics,
+                machine learning and software development. I enjoy the
+                complete problem-solving cycle — from cleaning and
+                interpreting data to developing applications and
+                presenting results through clear visualizations.
+            </p>
+
+            <p>
+                I’m currently building practical projects that strengthen
+                my analytical thinking, technical confidence and ability
+                to solve real-world problems using data and software.
+            </p>
+
+        </div>
+
+
+        <div class="interest reveal">
+
+            <div class="interest-title">
+                AREAS OF INTEREST
+            </div>
+
+            <div class="tags">
+
+                <span class="tag">Data Analytics</span>
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Software Development</span>
+                <span class="tag">Problem Solving</span>
+                <span class="tag">Visualization</span>
+
+            </div>
+
+            <div class="quote">
+                “I believe good solutions begin with clear thinking,
+                useful data, and a strong focus on practical outcomes.”
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="thinking">
+
+        <div class="think reveal">
+            <span class="think-number">01</span>
+            <h3>ANALYZE</h3>
+            <p>Data to find patterns</p>
+        </div>
+
+        <div class="think reveal">
+            <span class="think-number">02</span>
+            <h3>LEARN</h3>
+            <p>Turn information into knowledge</p>
+        </div>
+
+        <div class="think reveal">
+            <span class="think-number">03</span>
+            <h3>BUILD</h3>
+            <p>Create practical solutions</p>
+        </div>
+
+        <div class="think reveal">
+            <span class="think-number">04</span>
+            <h3>VISUALIZE</h3>
+            <p>Communicate insights</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     EXPERTISE
+============================== -->
+
+<section id="expertise" class="section-top">
+
+    <div class="reveal">
+
+        <div class="label">02 / EXPERTISE</div>
+
+        <h2 class="section-title">
+            Technical<br>
+            Capabilities.
+        </h2>
+
+        <p style="margin-top:30px;max-width:600px;color:#666;">
+            A blend of analytical thinking and technical skills used
+            to build data-driven solutions.
+        </p>
+
+    </div>
+
+
+    <div class="skills">
+
+        <div class="skill reveal">
+
+            <span class="skill-no">01 / 04</span>
+
+            <h3>DATA & ANALYTICS</h3>
+
+            <ul>
+                <li>Data Analysis</li>
+                <li>Data Cleaning</li>
+                <li>Data Interpretation</li>
+                <li>SQL / MySQL</li>
+                <li>Predictive Analytics</li>
+            </ul>
+
+            <span class="core">PRACTICAL CORE COMPETENCY</span>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <span class="skill-no">02 / 04</span>
+
+            <h3>DEVELOPMENT</h3>
+
+            <ul>
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Flask</li>
+                <li>Git</li>
+                <li>GitHub</li>
+                <li>VS Code</li>
+            </ul>
+
+            <span class="core">PRACTICAL CORE COMPETENCY</span>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <span class="skill-no">03 / 04</span>
+
+            <h3>AI & MACHINE LEARNING</h3>
+
+            <ul>
+                <li>Machine Learning Fundamentals</li>
+                <li>Predictive Analytics</li>
+                <li>Data-driven Problem Solving</li>
+            </ul>
+
+            <span class="core">PRACTICAL CORE COMPETENCY</span>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <span class="skill-no">04 / 04</span>
+
+            <h3>VISUALIZATION</h3>
+
+            <ul>
+                <li>Power BI</li>
+                <li>Microsoft Excel</li>
+                <li>D3.js</li>
+                <li>Dashboard Design</li>
+            </ul>
+
+            <span class="core">PRACTICAL CORE COMPETENCY</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     PROJECTS
+============================== -->
+
+<section id="projects" class="section-top">
+
+    <div class="reveal">
+
+        <div class="label">03 / SELECTED WORK</div>
+
+        <h2 class="section-title">
+            Projects Built<br>
+            Around Real Problems.
+        </h2>
+
+        <p style="margin-top:30px;max-width:620px;color:#666;">
+            A focused selection of technical work combining data handling,
+            structured logic, and functional application interfaces.
+        </p>
+
+    </div>
+
+
+    <!-- GARMENT PROJECT -->
+
+    <div class="project">
+
+        <div class="project-info reveal">
+
+            <div class="label">
+                FEATURED CAPSTONE
+            </div>
+
+            <h3>
+                AI-Based Garment Production &
+                Planning Software
+            </h3>
+
+            <div class="project-category">
+                PRODUCTION PLANNING • ANALYTICS • AUTOMATION
+            </div>
+
+            <p class="project-description">
+                A centralized application combining order management,
+                production planning, resource allocation, workflow
+                tracking and operational dashboards.
+            </p>
+
+            <div class="module-list">
+
+                <span class="module">Order Management</span>
+                <span class="module">Production Planning</span>
+                <span class="module">Resource Allocation</span>
+                <span class="module">Workflow Tracking</span>
+                <span class="module">Analytics Dashboard</span>
+                <span class="module">Automation</span>
+
+            </div>
+
+            <div class="tech">
+                PYTHON • FLASK • HTML • CSS • JAVASCRIPT
+            </div>
+
+        </div>
+
+
+        <div class="dashboard reveal">
+
+            <div class="dashboard-head">
+                <span>GARMENT PRODUCTION PLANNER</span>
+                <span>DEMO INTERFACE</span>
+            </div>
+
+
+            <div class="dashboard-stats">
+
+                <div class="dashboard-stat">
+                    <small>ACTIVE ORDERS</small>
+                    <strong>24</strong>
+                </div>
+
+                <div class="dashboard-stat">
+                    <small>IN PRODUCTION</small>
+                    <strong>14</strong>
+                </div>
+
+                <div class="dashboard-stat">
+                    <small>COMPLETED</small>
+                    <strong>82</strong>
+                </div>
+
+                <div class="dashboard-stat">
+                    <small>PENDING</small>
+                    <strong>08</strong>
+                </div>
+
+            </div>
+
+
+            <div class="pipeline-title">
+                PRODUCTION SCHEDULE & ORDER PIPELINE
+            </div>
+
+
+            <div class="pipeline-row">
+                <span>GP-402</span>
+                <span>Cotton Apparel</span>
+                <b>Cutting → Sewing</b>
+            </div>
+
+            <div class="pipeline-row">
+                <span>GP-403</span>
+                <span>Twill Trousers</span>
+                <b>Finishing</b>
+            </div>
+
+            <div class="pipeline-row">
+                <span>GP-405</span>
+                <span>Linen Overcoats</span>
+                <b>Material Estimation</b>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- GYM PROJECT -->
+
+    <div class="project second-project">
+
+        <div class="project-info reveal">
+
+            <div class="label">
+                SECOND PROJECT
+            </div>
+
+            <h3>
+                Gym Management System
+            </h3>
+
+            <p class="project-description">
+                A specialized Python administrative application built
+                to streamline member registration, queries and record
+                maintenance.
+            </p>
+
+            <div class="quote">
+                “A lightweight member-management application designed
+                to simplify everyday gym administration.”
+            </div>
+
+
+            <div class="features">
+
+                <div class="feature">
+                    <b>01 / REGISTER</b>
+                    <p>Create and maintain structured member records.</p>
+                </div>
+
+                <div class="feature">
+                    <b>02 / SEARCH</b>
+                    <p>Quickly retrieve member information.</p>
+                </div>
+
+                <div class="feature">
+                    <b>03 / MANAGE</b>
+                    <p>Add and remove member information.</p>
+                </div>
+
+            </div>
+
+            <div class="tech" style="margin-top:25px;">
+                PYTHON • FLASK • HTML • CSS • JAVASCRIPT
+            </div>
+
+        </div>
+
+
+        <div class="gym reveal">
+
+            <div class="gym-head">
+                <b>GYM MANAGEMENT SYSTEM</b>
+                <span>DEMO INTERFACE</span>
+            </div>
+
+            <div class="search">
+                <input id="memberSearch" type="text" placeholder="Search member name / ID...">
+                <button onclick="searchMember()">SEARCH</button>
+            </div>
+
+
+            <div class="member-table">
+
+                <div class="member-row header">
+                    <span>ID</span>
+                    <span>MEMBER NAME</span>
+                    <span>AGE</span>
+                    <span>PLAN</span>
+                    <span>STATUS</span>
+                </div>
+
+                <div class="member-row member">
+                    <span>MEM-104</span>
+                    <span>A. Ramanathan</span>
+                    <span>28</span>
+                    <span>Annual</span>
+                    <span>Active</span>
+                </div>
+
+                <div class="member-row member">
+                    <span>MEM-105</span>
+                    <span>P. Sneha</span>
+                    <span>24</span>
+                    <span>Quarterly</span>
+                    <span>Active</span>
+                </div>
+
+                <div class="member-row member">
+                    <span>MEM-106</span>
+                    <span>K. Karthik</span>
+                    <span>31</span>
+                    <span>Monthly</span>
+                    <span>Pending</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     PROCESS / JOURNEY
+============================== -->
+
+<section id="journey" class="section-top">
+
+    <div class="reveal">
+
+        <div class="label">04 / PROCESS</div>
+
+        <h2 class="section-title">
+            From Data<br>
+            To Impact.
+        </h2>
+
+        <p style="margin-top:30px;color:#666;">
+            A structured way of thinking to solve real-world problems.
+        </p>
+
+    </div>
+
+
+    <div class="process-grid">
+
+        <div class="process-card reveal">
+            <span>01</span>
+            <h3>DISCOVER</h3>
+            <p>
+                Understand the problem and identify useful information.
+            </p>
+        </div>
+
+        <div class="process-card reveal">
+            <span>02</span>
+            <h3>PREPARE</h3>
+            <p>
+                Clean and structure data for analysis.
+            </p>
+        </div>
+
+        <div class="process-card reveal">
+            <span>03</span>
+            <h3>ANALYZE</h3>
+            <p>
+                Explore patterns and interpret results.
+            </p>
+        </div>
+
+        <div class="process-card reveal">
+            <span>04</span>
+            <h3>BUILD</h3>
+            <p>
+                Develop analytical, machine-learning or software solutions.
+            </p>
+        </div>
+
+        <div class="process-card reveal">
+            <span>05</span>
+            <h3>COMMUNICATE</h3>
+            <p>
+                Transform results into clear dashboards and understandable insights.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     EDUCATION
+============================== -->
+
+<section id="education" class="section-top">
+
+    <div class="reveal">
+
+        <div class="label">05 / EDUCATION</div>
+
+        <h2 class="section-title">
+            Academic<br>
+            Foundation.
+        </h2>
+
+    </div>
+
+
+    <div class="education-grid">
+
+        <div class="reveal">
+
+            <div class="label">DEGREE PROGRAM</div>
+
+            <h3>
+                B.Sc. Computer Science
+                with Data Analytics
+            </h3>
+
+            <p class="college">
+                KPR College of Arts Science and Research
+                • Tamil Nadu
+            </p>
+
+        </div>
+
+
+        <div class="reveal">
+
+            <div class="label">ACADEMIC FOCUS</div>
+
+            <p style="margin-top:20px;color:#666;">
+                Building a foundation across computer science,
+                analytics, databases, programming and data-driven
+                problem solving.
+            </p>
+
+            <div class="tags">
+
+                <span class="tag">Computer Science</span>
+                <span class="tag">Data Analytics</span>
+                <span class="tag">Programming</span>
+                <span class="tag">Databases</span>
+                <span class="tag">Problem Solving</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="score reveal">
+
+            <small>ACADEMIC SCORE</small>
+
+            <strong>83%</strong>
+
+            <span>Verified Academic Score</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     GROWTH
+============================== -->
+
+<section class="section-top">
+
+    <div class="reveal">
+
+        <div class="label">06 / GROWTH</div>
+
+        <h2 class="section-title">
+            Beyond the<br>
+            Classroom.
+        </h2>
+
+        <div class="growth-quote">
+            “Knowledge builds capability.<br>
+            Curiosity drives growth.”
+        </div>
+
+    </div>
+
+
+    <div class="growth-grid">
+
+        <div class="growth-card reveal">
+            <span>01</span>
+            <h3>SKILL BUILDING</h3>
+            <p>
+                Continuously developing practical skills across
+                Data Analytics, Machine Learning, Python, SQL
+                and Software Development.
+            </p>
+        </div>
+
+        <div class="growth-card reveal">
+            <span>02</span>
+            <h3>COMMUNICATION</h3>
+            <p>
+                Building confidence in communicating project ideas,
+                technical approaches and developed solutions.
+            </p>
+        </div>
+
+        <div class="growth-card reveal">
+            <span>03</span>
+            <h3>APPLICATION</h3>
+            <p>
+                Applying classroom concepts through practical
+                software and data-driven projects.
+            </p>
+        </div>
+
+        <div class="growth-card reveal">
+            <span>04</span>
+            <h3>EVOLUTION</h3>
+            <p>
+                Exploring tools, technologies and problem-solving
+                methods through consistent practice.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="exploring reveal">
+
+        <div class="exploring-title">
+            CURRENTLY EXPLORING & EXPANDING
+        </div>
+
+        <div class="exploring-list">
+            <span>DATA ANALYTICS</span>
+            <span>POWER BI</span>
+            <span>PYTHON</span>
+            <span>SQL</span>
+            <span>MACHINE LEARNING</span>
+            <span>DATA VISUALIZATION</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     CONTACT
+============================== -->
+
+<section id="contact" class="section-top">
+
+    <div class="contact-inner reveal">
+
+        <div class="label">
+            LET'S CONNECT
+        </div>
+
+        <h2>
+            Let's turn data<br>
+            into something useful.
+        </h2>
+
+        <p class="contact-description">
+            I’m open to opportunities where I can learn,
+            contribute and build practical solutions.
+        </p>
+
+
+        <div class="contact-grid">
+
+            <a class="contact-item"
+               href="mailto:indujhaindujha8@gmail.com">
+
+                <span>EMAIL</span>
+
+                indujhaindujha8@gmail.com
+
+            </a>
+
+
+            <a class="contact-item"
+               href="tel:+919600360722">
+
+                <span>PHONE</span>
+
+                +91 96003 60722
+
+            </a>
+
+
+            <a class="contact-item"
+               href="https://www.linkedin.com/in/indujha-a-92b561341/"
+               target="_blank">
+
+                <span>LINKEDIN</span>
+
+                LinkedIn Profile
+
+            </a>
+
+
+            <div class="contact-item">
+
+                <span>LOCATION</span>
+
+                Tamil Nadu, India
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- ==============================
+     FOOTER
+============================== -->
+
+<footer>
+
+    <div class="footer-logo">
+        INDUJHA
+    </div>
+
+    <div class="footer-role">
+        DATA ANALYTICS • MACHINE LEARNING • SOFTWARE DEVELOPMENT
+    </div>
+
+    <div class="footer-links">
+
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#expertise">EXPERTISE</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#journey">JOURNEY</a>
+        <a href="#education">EDUCATION</a>
+        <a href="#contact">CONTACT</a>
+
+    </div>
+
+    <span class="copyright">
+        © 2026 INDUJHA · DATA • INSIGHT • IMPACT
+    </span>
+
+</footer>
+
+
+<script>
+
+/* ==============================
+   MOBILE MENU
+============================== */
+
+const menu = document.getElementById("menu");
+const nav = document.getElementById("nav");
+
+menu.addEventListener("click", function(){
+
+    nav.classList.toggle("open");
+
+});
+
+
+/* Close mobile menu */
+
+document.querySelectorAll("nav a").forEach(function(link){
+
+    link.addEventListener("click", function(){
+        nav.classList.remove("open");
+    });
+
+});
+
+
+/* ==============================
+   ACTIVE NAVIGATION
+============================== */
+
+const sections = document.querySelectorAll("main section[id]");
+const links = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", function(){
+
+    let current = "";
+
+    sections.forEach(function(section){
+
+        const top = section.offsetTop - 180;
+
+        if(window.scrollY >= top){
+            current = section.getAttribute("id");
+        }
+
+    });
+
+    links.forEach(function(link){
+
+        link.classList.remove("active");
+
+        if(link.getAttribute("href") === "#" + current){
+            link.classList.add("active");
+        }
+
+    });
+
+});
+
+
+/* ==============================
+   SCROLL REVEAL
+============================== */
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(function(entries){
+
+    entries.forEach(function(entry){
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+            observer.unobserve(entry.target);
+
+        }
+
+    });
+
+},{
+    threshold:0.12
+});
+
+
+revealElements.forEach(function(element){
+    observer.observe(element);
+});
+
+
+/* ==============================
+   GYM SEARCH DEMO
+============================== */
+
+function searchMember(){
+
+    const input = document
+        .getElementById("memberSearch")
+        .value
+        .toLowerCase();
+
+    const members = document.querySelectorAll(".member");
+
+    members.forEach(function(member){
+
+        const text = member.innerText.toLowerCase();
+
+        if(text.includes(input)){
+            member.style.display = "grid";
+        }else{
+            member.style.display = "none";
+        }
+
+    });
+
+}
+
+
+/* Search when pressing Enter */
+
+document
+.getElementById("memberSearch")
+.addEventListener("keyup", function(event){
+
+    if(event.key === "Enter"){
+        searchMember();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
